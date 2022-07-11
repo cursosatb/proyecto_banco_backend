@@ -19,7 +19,8 @@ export async function mostrarMenuGestores(w: Wrapper) {
       console.log('4. Mostrar gestor por identificador');
       console.log('5. Modificar gestor');
       console.log('6. Eliminar gestor por identificador');
-      console.log('7. Atrás');
+      console.log('7. Eliminar todos los gestores');
+      console.log('8. Atrás');
       
       opcion = await w.rlp.questionAsync('¿Qué opción deseas?\n');
 
@@ -31,5 +32,23 @@ export async function mostrarMenuGestores(w: Wrapper) {
         await w.rlp.questionAsync('');
       }
 
-    } while(opcion !== '7')
+      // Opción 3 --> Mostrar gestores 
+      else if(opcion === '3') {
+        await bancoGestores.mostrarGestores();
+        await w.rlp.questionAsync('');
+      }
+
+      // Opción 6 --> Eliminar gestor por identificador
+      else if(opcion === '6') {
+        await bancoGestores.eliminarGestorPorId(w);
+        await w.rlp.questionAsync('');
+      }
+
+      // Opción 7 --> Eliminar todos los gestores
+      else if(opcion === '7') {
+        await bancoGestores.eliminarGestores(w);
+        await w.rlp.questionAsync('');
+      }
+
+    } while(opcion !== '8');
 }
