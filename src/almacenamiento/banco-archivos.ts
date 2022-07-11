@@ -83,6 +83,6 @@ export class BancoArchivos {
     const gestoresStr = JSON.stringify(this.gestores, null, 2);
 
     // this.rutaGestores = C:\workspace_backend\proyecto_banco_backend\datos\gestores.json
-    fs.writeFile(this.rutaGestores, gestoresStr, () => {});
+    fs.writeFileSync(this.rutaGestores, gestoresStr);
   }
 }

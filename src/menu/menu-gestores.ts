@@ -1,14 +1,12 @@
 import { Configuracion } from '../modelos/configuracion';
 import { BancoArchivos } from '../almacenamiento/banco-archivos';
 import { BancoGestores } from '../opciones/banco-gestores';
+import { Wrapper } from '../modelos/wrapper';
 
-export async function mostrarMenuGestores(
-  conf: Configuracion, 
-  bancoArchivos: BancoArchivos,
-  rlp) {
+export async function mostrarMenuGestores(w: Wrapper) {
 
     let opcion: string;
-    const bancoGestores = new BancoGestores(conf, bancoArchivos, rlp);
+    const bancoGestores = new BancoGestores(w);
 
     do {
 
@@ -23,14 +21,14 @@ export async function mostrarMenuGestores(
       console.log('6. Eliminar gestor por identificador');
       console.log('7. Atrás');
       
-      opcion = await rlp.questionAsync('¿Qué opción deseas?\n');
+      opcion = await w.rlp.questionAsync('¿Qué opción deseas?\n');
 
       console.clear();
 
       // Opción 1 --> Insertar gestor 
       if(opcion === '1') {
         await bancoGestores.insertarGestor();        
-        await rlp.questionAsync('');
+        await w.rlp.questionAsync('');
       }
 
     } while(opcion !== '7')
