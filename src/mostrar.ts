@@ -2,7 +2,7 @@ import { Gestor } from './modelos/gestor';
 function mostrarGestor(gestor) {
   console.log(`id: ${gestor.id}`);
   console.log(`usuario: ${gestor.usuario}`);
-  console.log(`password: ${gestor.password}`);
+  // console.log(`password: ${gestor.password}`);
   console.log(`correo: ${gestor.correo}`);
   console.log('-----');
 }

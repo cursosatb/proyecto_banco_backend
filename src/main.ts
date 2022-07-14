@@ -41,6 +41,15 @@ async function main() {
 }
 
 main();
+// import randomEmail from 'random-email';
+
+//   console.log(randomEmail({domain: 'banco.es'}))
+
+// import { uniqueNamesGenerator, adjectives, colors, animals, names } from'unique-names-generator';
+
+// const randomName = uniqueNamesGenerator({ dictionaries: [names] }); // big_red_donkey
+// console.log(randomName);
+
 
 
 // console.log(conf.archivosUbicacion);
