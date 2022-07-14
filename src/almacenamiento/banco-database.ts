@@ -7,6 +7,7 @@ export class BancoDatabase {
   // atributos
   private conf: Configuracion;
   private cGestores: Collection<Gestor>
+  // private cClientes: Collection<Cliente>
   private idSiguiente: number = 1;
 
   constructor(conf: Configuracion) {
