@@ -7,6 +7,7 @@ import { Wrapper } from './modelos/wrapper';
 import readline from 'readline-promise';
 import { validarConfiguracion } from './validaciones/validacion-configuracion';
 import { BancoDatabase } from './almacenamiento/banco-database';
+import { ModuloEmail } from './modulos/modulo-email';
 
 async function main() {
   // __dirname = C:\workspace_backend\proyecto_banco_backend\dist
@@ -30,6 +31,7 @@ async function main() {
     conf,
     bancoArchivos: new BancoArchivos(conf),
     bancoDatabase,
+    moduloEmail: new ModuloEmail(conf),
     rlp: readline.createInterface({
       input: process.stdin,
       output: process.stdout,
@@ -41,17 +43,3 @@ async function main() {
 }
 
 main();
-// import randomEmail from 'random-email';
-
-//   console.log(randomEmail({domain: 'banco.es'}))
-
-// import { uniqueNamesGenerator, adjectives, colors, animals, names } from'unique-names-generator';
-
-// const randomName = uniqueNamesGenerator({ dictionaries: [names] }); // big_red_donkey
-// console.log(randomName);
-
-
-
-// console.log(conf.archivosUbicacion);
-
-// console.log(__dirname);

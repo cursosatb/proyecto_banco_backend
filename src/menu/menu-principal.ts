@@ -5,6 +5,7 @@ import { BancoArchivos } from '../almacenamiento/banco-archivos';
 import { mostrarMenuGestores } from './menu-gestores';
 import { Wrapper } from '../modelos/wrapper';
 import { mostrarMenuClientes } from './menu-clientes';
+import { mostrarMenuOtros } from './menu-otros';
 
 // export porque la función se utiliza fuera de este archivo
 // async porque dentro se utiliza await
@@ -18,10 +19,10 @@ export async function mostrarMenuPrincipal(w: Wrapper) {
     console.log(`
 ______
 | ___ \\                      
-| |_\/ \/ __ _ _ __   ___ ___  
-| ___ \\\/ _ | '_ \\ \/ __\/ _ \\ 
-| |_\/ \/ (_| | | | | (_| (_) |
-\____\/ \\__,_|_| |_|\___\___\/ `);
+| |_/ / __ _ _ __   ___ ___  
+| ___ \\/ _ | '_ \\ / __/ _ \\ 
+| |_/ / (_| | | | | (_| (_) |
+\____/ \\____|_| |_|\\___\\___/ `);
     
     console.log('-------------');
     console.log('1. Gestores');
@@ -40,6 +41,10 @@ ______
 
     else if(opcion === '2') {
       await mostrarMenuClientes(w);
+    }
+
+    else if(opcion === '5') {
+      await mostrarMenuOtros(w);
     }
 
   } while(opcion !== '0');

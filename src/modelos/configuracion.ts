@@ -5,5 +5,10 @@ export interface Configuracion {
   databaseHabilitado: boolean,
   databaseHost: string,
   databasePuerto: number,
-  databaseNombre: string
+  databaseNombre: string,
+
+  smtpHost: string,
+  smtpPuerto: number,
+  smtpUsuario: string,
+  smtpPassword: string
 }

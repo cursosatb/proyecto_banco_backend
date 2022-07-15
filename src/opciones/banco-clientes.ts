@@ -9,4 +9,5 @@ export class BancoGestores {
   constructor(w: Wrapper) {
     this.w = w;
   }
+
 }
