@@ -56,6 +56,30 @@ export class BancoDatabase {
 
   }
 
+  async obtenerGestoresPorPaginacion(
+    numPagina: number, 
+    numElementos: number): Promise<Gestor[]> 
+    {
+
+    /*
+    suponiendo que numElementos = 10:
+
+      numPagina = 1 --> skip = 0
+      numPagina = 2 --> skip = 10 -> (numPagina - 1) * numElementos = 10
+      numPagina = 3 --> skip = 20 -> (numPagina - 1) * numElementos = 20
+      numPagina = 4 --> skip = 30
+    */
+
+    const skip = (numPagina - 1) * numElementos;
+    const gestores = await this.cGestores
+      .find({})
+      .skip(skip)
+      .limit(numElementos)
+      .toArray();
+    
+    return gestores;
+  }
+
   async obtenerGestorPorCorreo(correo: string): Promise<Gestor> {
     const gestor = await this.cGestores.findOne({
       correo

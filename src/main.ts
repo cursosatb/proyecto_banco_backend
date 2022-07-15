@@ -8,12 +8,19 @@ import readline from 'readline-promise';
 import { validarConfiguracion } from './validaciones/validacion-configuracion';
 import { BancoDatabase } from './almacenamiento/banco-database';
 import { ModuloEmail } from './modulos/modulo-email';
+import { ModuloAutenticacion } from './modulos/modulo-autenticacion';
 
 async function main() {
   // __dirname = C:\workspace_backend\proyecto_banco_backend\dist
   // .. -> directorio superior (C:\workspace_backend\proyecto_banco_backend\)
   // C:\workspace_backend\proyecto_banco_backend\conf.json
   const rutaArchivo = path.join(__dirname, '..', 'conf.json');
+
+  if(!fs.existsSync(rutaArchivo)) {
+    console.log('No existe el archivo de configuración');
+    return;
+  }
+
   const datos = fs.readFileSync(rutaArchivo ).toString();
   const conf: Configuracion = JSON.parse(datos);
   const msg: string = validarConfiguracion(conf);
@@ -32,13 +39,16 @@ async function main() {
     bancoArchivos: new BancoArchivos(conf),
     bancoDatabase,
     moduloEmail: new ModuloEmail(conf),
+    moduloAutenticacion: null,
     rlp: readline.createInterface({
       input: process.stdin,
       output: process.stdout,
       terminal: false,
     })
   }
-  
+
+  w.moduloAutenticacion = new ModuloAutenticacion(w);
+
   await mostrarMenuPrincipal(w);
 }
 

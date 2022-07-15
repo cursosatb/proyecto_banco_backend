@@ -6,6 +6,7 @@ import { mostrarMenuGestores } from './menu-gestores';
 import { Wrapper } from '../modelos/wrapper';
 import { mostrarMenuClientes } from './menu-clientes';
 import { mostrarMenuOtros } from './menu-otros';
+import { mostrarMenuLogin } from './menu-login';
 
 // export porque la función se utiliza fuera de este archivo
 // async porque dentro se utiliza await
@@ -25,12 +26,36 @@ ______
 \____/ \\____|_| |_|\\___\\___/ `);
     
     console.log('-------------');
+
+    // si el gestor no está autenticado
+    if(!w.moduloAutenticacion.estaGestorAutenticado()) {
+      console.log('No autenticado'); 
+    }
+    
+    // si el gestor está autenticado
+    else if(w.moduloAutenticacion.estaGestorAutenticado()) {
+      const gestorAutenticado = w.moduloAutenticacion.obtenerUsuarioGestor();
+      console.log(`Gestor autenticado: ${gestorAutenticado}`);
+    }
+    
+    console.log('-------------');
     console.log('1. Gestores');
     console.log('2. Clientes');
     console.log('3. Mensajes');
     console.log('4. Transferencias');
     console.log('5. Otros');
-    console.log('6. Login');
+    
+    if(w.conf.autenticacionHabilitado) {
+
+      if(!w.moduloAutenticacion.estaGestorAutenticado()) {
+        console.log('6. Login');
+      }
+
+      else if(w.moduloAutenticacion.estaGestorAutenticado()) {
+        console.log('6. Logout');
+      }
+    }
+
     console.log('0. Salir');
     
     opcion = await w.rlp.questionAsync('¿Qué opción deseas?\n');
@@ -45,6 +70,17 @@ ______
 
     else if(opcion === '5') {
       await mostrarMenuOtros(w);
+    }
+
+    else if(opcion === '6') {
+
+      if(!w.moduloAutenticacion.estaGestorAutenticado()) {
+        await mostrarMenuLogin(w);
+      }
+
+      else if(w.moduloAutenticacion.estaGestorAutenticado()) {
+        w.moduloAutenticacion.logout();
+      }
     }
 
   } while(opcion !== '0');

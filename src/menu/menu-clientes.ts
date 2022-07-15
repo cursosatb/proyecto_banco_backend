@@ -1,9 +1,10 @@
 import { Wrapper } from '../modelos/wrapper';
+import { BancoClientes } from '../opciones/banco-clientes';
 
 export async function mostrarMenuClientes(w: Wrapper) {
 
   let opcion: string;
-  // const bancoClientes = new BancoClientes(w);
+  const bancoClientes = new BancoClientes(w);
 
   do {
 
@@ -24,6 +25,7 @@ export async function mostrarMenuClientes(w: Wrapper) {
 
     // Opción 1 --> Insertar cliente 
     if(opcion === '1') {
+      await bancoClientes.insertarCliente();
       await w.rlp.questionAsync('');
     }
 
