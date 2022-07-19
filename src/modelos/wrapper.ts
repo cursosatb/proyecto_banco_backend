@@ -3,6 +3,8 @@ import { BancoArchivos } from '../almacenamiento/banco-archivos';
 import { BancoDatabase } from '../almacenamiento/banco-database';
 import { ModuloEmail } from '../modulos/modulo-email';
 import { ModuloAutenticacion } from './../modulos/modulo-autenticacion';
+import { ModuloExpress } from '../modulos/modulo-express';
+import { ModuloAutenticacionWeb } from '../modulos/modulo-autenticacion-web';
 
 export interface Wrapper {
   rlp: any;
@@ -10,5 +12,7 @@ export interface Wrapper {
   bancoArchivos: BancoArchivos,
   bancoDatabase: BancoDatabase,
   moduloEmail: ModuloEmail,
-  moduloAutenticacion: ModuloAutenticacion
+  moduloAutenticacion: ModuloAutenticacion,
+  moduloAutenticacionWeb: ModuloAutenticacionWeb,
+  moduloExpress: ModuloExpress
 };

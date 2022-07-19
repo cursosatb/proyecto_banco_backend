@@ -44,8 +44,6 @@ export class BancoArchivos {
       const idMaximo = Math.max(...ids);
       this.idSiguiente = idMaximo + 1;
     }
-
-    mostrarGestores(this.gestores)
   }
 
   async obtenerGestorPorUsuario(usuario: string): Promise<Gestor> {

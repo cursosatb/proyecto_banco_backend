@@ -64,6 +64,18 @@ export async function mostrarMenuGestores(w: Wrapper) {
       await w.rlp.questionAsync("");
     }
 
+    // Opción 4 -->  Mostrar gestor por identificador
+    else if (opcion === "4") {
+      await bancoGestores.mostrarGestorPorId(w);
+      await w.rlp.questionAsync("");
+    }
+
+    // Opción 5 --> Modificar gestor
+    else if (opcion === '5') {
+      await bancoGestores.actualizarGestorPorUsuario(w);
+      await w.rlp.questionAsync("");
+    }
+
     // Opción 6 --> Eliminar gestor por identificador
     else if (opcion === "6") {
       await bancoGestores.eliminarGestorPorId(w);
