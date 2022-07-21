@@ -31,6 +31,8 @@ export class ModuloEmail {
         text: texto
       });
 
+      // console.log(info);
+      
       // el correo se ha enviado correctamente
       return true;
     } 

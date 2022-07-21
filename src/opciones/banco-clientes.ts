@@ -12,7 +12,9 @@ export class BancoClientes {
 
   async insertarCliente() {
 
-    const id_gestor = +(await this.w.rlp.questionAsync('Id del gestor'));
+    const id_gestor = +(await this.w.rlp.questionAsync('Id del gestor: '));
+
+    const usuario = await this.w.rlp.questionAsync('Usuario: ');
   }
 
 }

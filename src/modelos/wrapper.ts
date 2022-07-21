@@ -5,6 +5,7 @@ import { ModuloEmail } from '../modulos/modulo-email';
 import { ModuloAutenticacion } from './../modulos/modulo-autenticacion';
 import { ModuloExpress } from '../modulos/modulo-express';
 import { ModuloAutenticacionWeb } from '../modulos/modulo-autenticacion-web';
+import { ModuloWebsocket } from '../modulos/modulo-websocket';
 
 export interface Wrapper {
   rlp: any;
@@ -14,5 +15,6 @@ export interface Wrapper {
   moduloEmail: ModuloEmail,
   moduloAutenticacion: ModuloAutenticacion,
   moduloAutenticacionWeb: ModuloAutenticacionWeb,
-  moduloExpress: ModuloExpress
+  moduloExpress: ModuloExpress,
+  moduloWebsocket: ModuloWebsocket
 };

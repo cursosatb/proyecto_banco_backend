@@ -11,6 +11,7 @@ import { ModuloEmail } from './modulos/modulo-email';
 import { ModuloAutenticacion } from './modulos/modulo-autenticacion';
 import { ModuloExpress } from './modulos/modulo-express';
 import { ModuloAutenticacionWeb } from './modulos/modulo-autenticacion-web';
+import { ModuloWebsocket } from './modulos/modulo-websocket';
 
 async function main() {
   // __dirname = C:\workspace_backend\proyecto_banco_backend\dist
@@ -44,6 +45,7 @@ async function main() {
     moduloAutenticacion: null,
     moduloAutenticacionWeb: null,
     moduloExpress: null,
+    moduloWebsocket: null,
     rlp: readline.createInterface({
       input: process.stdin,
       output: process.stdout,
@@ -54,8 +56,9 @@ async function main() {
   w.moduloAutenticacionWeb = new ModuloAutenticacionWeb(w);
   w.moduloExpress = new ModuloExpress(w);
   w.moduloAutenticacion = new ModuloAutenticacion(w);
+  w.moduloWebsocket = new ModuloWebsocket(w);
 
-  // await mostrarMenuPrincipal(w);
+  await mostrarMenuPrincipal(w);
 }
 
 main();
