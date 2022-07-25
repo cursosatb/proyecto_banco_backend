@@ -1,0 +1,26 @@
+{
+  "archivosUbicacion": "datos",
+  "archivosHabilitado": false,
+
+  "databaseHabilitado": true,
+  "databaseHost": "127.0.0.1",
+  "databasePuerto": 27017,
+  "databaseNombre": "banco",
+
+  "smtpHost": "smtp.gmail.com",
+  "smtpPuerto": 465,
+  "smtpUsuario": "pepitonode@gmail.com",
+  "smtpPassword": "rhncigxanbrurjnf",
+
+  "autenticacionHabilitado": false,
+
+  "expressPuerto": 8085,
+
+  "peliculasApiKey": "cbcbe3da053f9aee159e0d91310da838",
+
+  "telegramToken": "5488442109:AAHkcaol6vZbrTyi5zW_7aaiwdc7iCrwTyM",
+  "telegramId": "2142492013",
+
+  "juegoPuertoExpress": 9000,
+  "juegoPuertoWebsocket": 9001
+}
