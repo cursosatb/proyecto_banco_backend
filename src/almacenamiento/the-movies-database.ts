@@ -73,6 +73,18 @@ export class TheMoviesDatabase {
     .toArray();
   }
 
+  // db.peliculas.createIndex({title: 1})
+  async obtenerPeliculasPorTermino(termino: string): Promise<Pelicula[]> {
+    return await this.cPeliculas
+    .find({
+      title: {
+        "$regex": new RegExp(termino, "i")  // "i" no sea sensible mayúsculas y minúsculas
+      }
+    })
+    .limit(500)
+    .toArray();
+  }
+
   async obtenerPaginasPorNumeroDeElementos(numElementos: number): Promise<number>{
     const numPeliculas = await this.cPeliculas.countDocuments({});
     return Math.ceil(numPeliculas / numElementos);

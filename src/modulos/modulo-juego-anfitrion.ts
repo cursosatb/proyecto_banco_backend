@@ -110,6 +110,13 @@ export class ModuloJuegoAnfitrion {
       res.json(peliculas)
     })
 
+    // http://localhost:9000/pelicula/buscar?termino=Marvel
+    this.app.get('/pelicula/buscar', async (req, res) => {
+      const termino = req.query.termino.toString();
+      const peliculas = await this.w.themoviesDatabase.obtenerPeliculasPorTermino(termino);
+      res.json(peliculas)
+    });
+
     // arranca el servicio de express (puerto 9000)
     this.serverExpress = this.app.listen(this.w.conf.juegoPuertoExpress, () => {
       console.log('Esperando jugadores...');      
